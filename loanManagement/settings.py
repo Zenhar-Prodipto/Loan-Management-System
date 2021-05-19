@@ -43,6 +43,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "crispy_forms",
+    "dashboard.apps.DashboardConfig",
+    # "dashboard",
+    "members",
+    "loan",
+    "deposite",
 ]
 
 MIDDLEWARE = [
@@ -136,12 +142,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
-# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 # MEDIA
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# Login
+LOGIN_REDIRECT_URL = "dashboard:home"
+LOGIN_URL = "dashboard:login"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

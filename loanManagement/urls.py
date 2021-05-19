@@ -18,10 +18,18 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+# Views
+from dashboard import views
+
 urlpatterns = (
     [
         path("admin/", admin.site.urls),
+        path("", include("dashboard.urls")),
+        path("members", include("members.urls")),
+        path("loan", include("loan.urls")),
+        path("deposite", include("deposite.urls")),
     ]
     # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 )
