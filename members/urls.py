@@ -5,5 +5,5 @@ app_name = "members"
 
 urlpatterns = [
     # dashboard
-    path("/mem", views.home, name="home"),
+    path("", views.home, name="members-home"),
 ]
