@@ -25,8 +25,8 @@
 
 
 <div class="content-section">
-    <section id="team" class="pb-5">
-        {% for profile in memberProfiles %}
+    <section  id="team" class="pb-5">
+        
         <div class="container">
            
             <h5 class="section-title h1">Members</h5>
@@ -38,7 +38,7 @@
                     <div class="image-flip" >
                         <div class="mainflip flip-0">
                             <div class="frontside">
-                                
+                                {% for profile in memberProfiles %}
                                 <div class="card">
                                     
                                     <div class="card-body text-center">
@@ -50,7 +50,7 @@
                                     </div>
                                    
                                 </div>
-                                
+                                {% endfor %}
                             </div>
                             
                         </div>
@@ -62,7 +62,41 @@
             </div>
            
         </div>
-        {% endfor %}
+   
+
+        <div class="backside">
+            <div class="card">
+                <div class="card-body text-center mt-4">
+                    <h4 class="card-title">Sunlimetech</h4>
+                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                <i class="fa fa-skype"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                                <i class="fa fa-google"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
        
     </section>
     
