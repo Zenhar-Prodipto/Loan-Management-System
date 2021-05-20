@@ -43,7 +43,7 @@
                                     
                                     <div class="card-body text-center">
                                         <p><img class=" img-fluid" src="{{profile.member_image.url}}" alt="card image"></p>
-                                        <h4 class="card-title">{{profile.member_name}}</h4>
+                                        <h4 class="card-title"> <a href="{% url 'members:members-details' profile.member_name profile.member_no %}">{{profile.member_name}}</a></h4>
                                         <p class="card-text"><span style="font-weight: bold;">Phone:</span> {{profile.member_phone_number}}</p>
                                         <p class="card-text"><span style="font-weight: bold;">Address:</span> {{profile.present_address}}</p>
                                         
