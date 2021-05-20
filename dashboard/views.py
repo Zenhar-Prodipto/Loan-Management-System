@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from .models import AdminProfile
+from .models import Adminprofile
 from django.contrib import messages
 from .forms import UserRegistrationForm, UserUpdateForm, AdminProfileUpdateForm
 from django.contrib.auth.decorators import login_required
@@ -35,17 +35,17 @@ def signup(request):
 @login_required
 def home(request):
 
-    context = {"profile_info": AdminProfile.objects.all()}
+    context = {"profile_info": Adminprofile.objects.all()}
     return render(request, "dashboard/home.html", context)
 
 
 class Home(ListView):
     template_name = "dashboard/home.html"
-    model = AdminProfile
+    model = Adminprofile
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        loggedInProfile = AdminProfile.objects.get(user=self.request.user)
+        loggedInProfile = Adminprofile.objects.get(user=self.request.user)
 
         context["loggedInProfile"] = loggedInProfile
 

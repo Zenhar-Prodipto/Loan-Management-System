@@ -1,0 +1,42 @@
+
+{% extends "dashboard/base.html" %}
+{% load static %}
+{% block title %}<title>Search Result</title>{% endblock %}
+     
+ {% load crispy_forms_tags %}
+ 
+
+
+
+{% block content %}
+{% include 'members/members-base.html' %}
+
+{% if member %}
+<button   class="btn btn-outline-info mb-4"><a href="{% url 'members:members-update' member.member_name member.member_no %}">Update {{member.member_name}}</a></button>
+<a class="btn btn-outline-danger mb-4 " href="{% url 'members:members-delete' member.member_name member.member_no %}">Delete</a>
+  <article class="media content-section">
+    <img style=" height: 65px;
+          width: 65px;
+          margin-right: 16px;
+          border-radius: 20px;" class="rounded-circle article-img" src="{{ member.member_image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ member.member_name }}</a>
+        <a class="mr-2" href="#">{{ member.permanent_village }}</a>
+        </div>
+  </article>
+
+  {% endif %}
+
+  {% if no_result %}
+
+  <p style="color: white; margin-left: 45%;">Search by Member id</p>
+<form  class="navbar-form navbar-left" action="{% url 'members:members-search' %}" method="POST">
+    {% csrf_token %}
+    <input style="margin-left:20%;" type="search" name="member_no_from_searchbar"  class="form-control col-lg-8" placeholder="Search"><button type="submit" style="margin-left:48%;" class="btn btn-outline-primary mt-4 mb-4">Search</button>
+  </form>
+
+
+  <h5 style="color: white;" >No member with such id. Search again</h5>
+  {% endif %}
+{% endblock content %}

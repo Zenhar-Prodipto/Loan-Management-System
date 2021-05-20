@@ -1,0 +1,76 @@
+
+{% extends "dashboard/base.html" %}
+
+<!------ Include the above in your HEAD tag ---------->
+{% load static %}
+{% block bootstrapClass %}
+<link rel="stylesheet" type="text/css" href="{% static 'members/members-css/members-create.css' %}">
+ {% endblock %}   
+
+
+
+{% block content %}
+
+
+
+{% include 'members/members-base.html' %}
+
+<h5 style="color: white;">Member Home</h5>
+
+<p style="color: white; margin-left: 45%;">Search by Member id</p>
+<form  class="navbar-form navbar-left" action="{% url 'members:members-search' %}" method="POST">
+    {% csrf_token %}
+    <input style="margin-left:20%;" type="search" name="member_no_from_searchbar"  class="form-control col-lg-8" placeholder="Search"><button type="submit" style="margin-left:48%;" class="btn btn-outline-primary mt-4 mb-4">Search</button>
+  </form>
+
+
+<div class="content-section">
+    <section id="team" class="pb-5">
+        {% for profile in memberProfiles %}
+        <div class="container">
+           
+            <h5 class="section-title h1">Members</h5>
+            
+            <div class="row">
+                <!-- Team member -->
+                
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" >
+                        <div class="mainflip flip-0">
+                            <div class="frontside">
+                                
+                                <div class="card">
+                                    
+                                    <div class="card-body text-center">
+                                        <p><img class=" img-fluid" src="{{profile.member_image.url}}" alt="card image"></p>
+                                        <h4 class="card-title">{{profile.member_name}}</h4>
+                                        <p class="card-text"><span style="font-weight: bold;">Phone:</span> {{profile.member_phone_number}}</p>
+                                        <p class="card-text"><span style="font-weight: bold;">Address:</span> {{profile.present_address}}</p>
+                                        
+                                    </div>
+                                   
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                  
+                </div>
+                
+            </div>
+           
+        </div>
+        {% endfor %}
+       
+    </section>
+    
+        </div> 
+     
+        
+
+ <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}
