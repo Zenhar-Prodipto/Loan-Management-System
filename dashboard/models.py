@@ -5,7 +5,7 @@ from PIL import Image
 # Create your models here.
 
 
-class AdminProfile(models.Model):
+class Adminprofile(models.Model):
     user = models.OneToOneField(
         User, related_name="adminprofile", on_delete=models.CASCADE
     )
@@ -14,7 +14,7 @@ class AdminProfile(models.Model):
     )
 
     def __str__(self):
-        return f"{self.user.username} Profile"
+        return f"{self.user.username}'s Profile"
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

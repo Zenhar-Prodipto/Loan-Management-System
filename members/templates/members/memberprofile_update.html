@@ -1,0 +1,35 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+{% block title %}<title>Update Member</title>{% endblock %}
+
+{% block bootstrapClass %}
+<link rel="stylesheet" type="text/css" href="{% static 'members/members-css/members-create.css' %}">
+ {% endblock %}    
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+{% include 'members/members-base.html' %}
+
+
+<div class="content-section">
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset style="text-align: center; display: flex; flex-wrap: wrap;
+        padding-left: 0; flex: 0 0 33.333333%; gap: 30px;" class="form-group">
+            <legend class="border-bottom mb-4">Update Members</legend>
+            {{form.media}}
+            {{form|crispy}}
+            
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-info mt-3 create-button" type="submit">Update</button>
+        </div>
+    </form>
+ 
+</div>
+
+
+
+{% endblock content %}

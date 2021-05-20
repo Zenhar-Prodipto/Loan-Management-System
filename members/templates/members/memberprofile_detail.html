@@ -1,0 +1,26 @@
+
+{% extends "dashboard/base.html" %}
+{% load static %}
+{% block title %}<title>Member Details</title>{% endblock %}
+     
+ {% load crispy_forms_tags %}
+ 
+
+
+
+{% block content %}
+{% include 'members/members-base.html' %}
+<button   class="btn btn-outline-info mb-4"><a href="{% url 'members:members-update' member.member_name member.member_no %}">Update {{member.member_name}}</a></button>
+<a class="btn btn-outline-danger mb-4 " href="{% url 'members:members-delete' member.member_name member.member_no %}">Delete</a>
+  <article class="media content-section">
+    <img style=" height: 65px;
+          width: 65px;
+          margin-right: 16px;
+          border-radius: 20px;" class="rounded-circle article-img" src="{{ member.member_image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ member.member_name }}</a>
+        <a class="mr-2" href="#">{{ member.permanent_village }}</a>
+        </div>
+  </article>
+{% endblock content %}

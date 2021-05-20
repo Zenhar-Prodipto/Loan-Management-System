@@ -1,0 +1,13 @@
+#id_member_image {
+  margin-left: 110px;
+}
+
+.create-button {
+  position: relative;
+  top: 2%;
+  left: 46%;
+}
+
+.form-wrap {
+  display: flex;
+}
