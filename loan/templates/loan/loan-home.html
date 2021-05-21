@@ -1,0 +1,43 @@
+{% extends "dashboard/base.html" %}
+
+{% load static %}
+{% block bootstrapClass %}
+<link rel="stylesheet" type="text/css" href="{% static 'members/members-css/members-create.css' %}">
+ {% endblock %}   
+
+
+
+{% block content %}
+
+{% include 'loan/loan-base.html' %}
+
+<p style="color: white; margin-left: 45%;">Search by loan id</p>
+<form  class="navbar-form navbar-left" action="{% url 'members:members-search' %}" method="POST">
+    {% csrf_token %}
+    <input style="margin-left:20%;" type="search" name="member_no_from_searchbar"  class="form-control col-lg-8" placeholder="Search"><button type="submit" style="margin-left:48%;" class="btn btn-outline-primary mt-4 mb-4">Search</button>
+  </form>
+
+  <p style="color: white; margin-left: 45%;">Loan Home</p>
+
+
+
+{% for collection in collections %}
+<div  style="color: white; text-align: center;">
+<p> <a href="{% url 'loan:collection-details' collection.loan_collection_id %}">collection_id: {{ collection.loan_collection_id}}</a> </p>
+<p>loan_id: {{ collection.loan_id.loan_id}}</p>
+<p>Member Name: {{ collection.member}}</p>
+<p>member_id: {{ collection.loan_id.member_no.member_no}}</p>
+<p>Loan Amount: {{ collection.loan_id.loan_amount}}</p>
+<p>Total Collection: {{collection.loan_total_collection}}</p>
+<p>Amount left: {{collection.loan_payable_installment_amount }}</p>
+<p>Number of installments: {{collection.loan_number_of_installments}}</p>
+<p>Deposite Balance: {{ collection.loan_deposite_balance}}</p>
+==========================
+</div>
+{% endfor %}
+
+
+
+
+
+{% endblock %}

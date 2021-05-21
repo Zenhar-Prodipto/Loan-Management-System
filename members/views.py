@@ -29,7 +29,7 @@ class CreateMembersView(LoginRequiredMixin, CreateView):
     success_url = "/members"
 
     def form_valid(self, form):
-        form.instance.author = self.request.user
+
         return super().form_valid(form)
 
 

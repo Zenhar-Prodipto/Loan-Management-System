@@ -1,0 +1,27 @@
+{% extends "dashboard/base.html" %}
+
+{% load static %}
+{% block bootstrapClass %}
+<link rel="stylesheet" type="text/css" href="{% static 'members/members-css/members-create.css' %}">
+ {% endblock %}   
+
+
+
+{% block content %}
+
+{% include 'loan/loan-base.html' %}
+
+{% for loan in loans %}
+
+<div style="color: white;">
+<p > <a href="{% url 'loan:loan-details' loan.loan_id %}"> ID: {{loan.loan_id}}</a></p>
+<p>NAME: {{loan.member_no.member_name}}</p>
+<p>LOAN AREA: {{loan.loan_area}}</p>
+<p>AMOUNT: {{loan.loan_amount}}</p>
+
+===============================================
+
+</div>
+
+{% endfor %}
+{% endblock %}

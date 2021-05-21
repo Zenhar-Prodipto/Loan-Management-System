@@ -1,0 +1,31 @@
+<div 
+style=  "display: flex;
+        align-items: center;
+        justify-content: center; 
+        gap: 12px;
+        margin-top: 100px;
+        margin-bottom: 50px;"
+>
+    <button style="width: 150px;"  
+    class="btn btn-outline-info">
+    <a href="{% url 'loan:loan-home' %}">loan</a>
+    </button>
+
+
+
+    <button style="width: 150px;"   
+    class="btn btn-outline-info">
+    <a href="{% url 'loan:loan-create' %}">Create loan</a>
+    </button>
+    
+    <button style="width: 150px;"   
+    class="btn btn-outline-info">
+    <a href="{% url 'loan:loan-list' %}">loan list</a>
+    </button>
+
+    <button style="width: 150px;"   
+    class="btn btn-outline-info">
+    <a href="{% url 'loan:loan-collection-create' %}">Create Collection</a>
+    </button>
+
+</div>

@@ -1,0 +1,39 @@
+
+{% extends "dashboard/base.html" %}
+{% load static %}
+{% block title %}<title>Member Details</title>{% endblock %}
+     
+ {% load crispy_forms_tags %}
+ 
+
+
+
+{% block content %}
+{% include 'loan/loan-base.html' %}
+
+<button   class="btn btn-outline-info mb-4">
+  <a href="{% url 'loan:collection-update' collection.loan_collection_id %}">
+  Update 
+  </a>
+  </button>
+
+  <article class="media content-section">
+    <img style=" height: 65px;
+          width: 65px;
+          margin-right: 16px;
+          border-radius: 20px;" class="rounded-circle article-img"
+         src="{{ collection.loan_id.member_no.member_image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <p>collection_id: {{ collection.loan_collection_id}}</p>
+        <p>loan_id: {{ collection.loan_id.loan_id}}</p>
+        <p>Member Name: {{ collection.member}}</p>
+        <p>member_id: {{ collection.loan_id.member_no.member_no}}</p>
+        <p>Loan Amount: {{ collection.loan_id.loan_amount}}</p>
+        <p>Total Collection: {{collection.loan_total_collection}}</p>
+        <p>Amount left: {{collection.loan_payable_installment_amount }}</p>
+        <p>Number of installments: {{collection.loan_number_of_installments}}</p>
+        <p>Deposite Balance: {{ collection.loan_deposite_balance}}</p>
+        </div>
+  </article>
+{% endblock content %}
