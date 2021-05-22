@@ -8,6 +8,11 @@ Loan Management System for the local Community
 <li>Loan Collection Dashboard</li>
 <img src="loanManagement/images/loan-home.png">
 
+# UserName & Password
+
+- username- adminMain
+- password- 123456password
+
 # Features
 
 - Admin Registration.
