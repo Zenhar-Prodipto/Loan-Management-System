@@ -1,0 +1,23 @@
+
+{% extends "dashboard/base.html" %}
+{% load static %}
+{% block title %}<title>Member Details</title>{% endblock %}
+     
+ {% load crispy_forms_tags %}
+ 
+
+
+
+{% block content %}
+{% include 'loan/loan-base.html' %}
+
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <p> ID: {{loan.loan_id}}</p>
+        <p>NAME: {{loan.member_no.member_name}}</p>
+        <p>LOAN AREA: {{loan.loan_area}}</p>
+        <p>AMOUNT: {{loan.loan_amount}}</p>
+        </div>
+  </article>
+{% endblock content %}
