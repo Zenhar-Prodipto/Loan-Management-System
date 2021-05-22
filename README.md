@@ -7,7 +7,6 @@ Loan Management System for the local Community
 <ul>
 <li>Loan Collection Dashboard</li>
 <img src="loanManagement/images/loan-home.png">
-<
 
 # Features
 
