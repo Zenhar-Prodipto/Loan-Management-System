@@ -6,6 +6,7 @@ Loan Management System for the local Community
 
 <ul>
 <li>Loan Collection Dashboard</li>
+<p> </p>
 <img src="loanManagement/images/loan-home.png">
 
 # UserName & Password
